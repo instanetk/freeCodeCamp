@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>An empty page</title>
+    <script src="cards.js" defer></script>
+    <link rel="stylesheet" href="_style.css">
+</head>
+
+<body>
+<h1 class="number">Cards: BlackJack</h1>
+<h3>
+  <img
+    alt=":checkered_flag:"
+    class="forum-image"
+    src="https://forum.freecodecamp.com/images/emoji/emoji_one/checkered_flag.png?v=3"
+    title=":checkered_flag:"
+    >
+   Problem Explanation:</h3>
+<p>In the casino game <strong>Blackjack</strong>, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called card counting.</p>
+<p>Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th align="center">Cards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1</td>
+<td align="center">2, 3, 4, 5, 6</td>
+</tr>
+<tr>
+<td>0</td>
+<td align="center">7, 8, 9</td>
+</tr>
+<tr>
+<td>-1</td>
+<td align="center">10, ‘J’, ‘Q’, ‘K’,‘A’</td>
+</tr>
+</tbody>
+</table>
+<p>You will write a card counting function. It will receive a <strong>card</strong> parameter and increment or decrement the global <strong>count</strong> variable according to the card’s value (see table). The function will then return a string with the current count and the string <code class="language-text">Bet</code> if the count is positive, or <code class="language-text">Hold</code> if the count is zero or negative. The current count and the player’s decision (<code class="language-text">Bet</code> or <code class="language-text">Hold</code>) should be separated by a single space.</p>
+<ul>
+<li>Change the code below <code class="language-text">// Only change code below this line</code> and up to <code class="language-text">// Only change code above this line</code></li>
+<li>Ensure that you are editing the inside of the <code class="language-text">cc</code> function.</li>
+<li>Use what you’ve learned to check the value of each <strong>card</strong> parameter passed into the function.</li>
+<li>Keep a running count of that number.</li>
+<li>If the final count is 1 or greater, return <strong># Hold</strong>.</li>
+<li>If the final count is 0 or less, return <strong># Bet</strong>.</li>
+</ul>
+<p><strong>Example Output:</strong></p>
+<ul>
+<li>-3 Hold</li>
+<li>5 Bet</li>
+</ul>
+</body>
+
+
+
+</html>
