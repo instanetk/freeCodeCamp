@@ -89,5 +89,10 @@ console.log(yourArray.length)
 // In order to complete this challenge, set the 2nd position (index 1)
 // of myArray to anything you want, besides "b".
 
+let myArray = ["a", "b", "c", "d"];
+// change code below this line
+
+//change code above this line
+
 console.warn("Line 54 // Basic Data Structures: Access an Array's Contents Using Bracket Notation")
 console.log(myArray);
