@@ -350,24 +350,43 @@ console.log(titleCase("I'm a little tea pot"));
 function frankenSplice(arr1, arr2, n) {
   // It's alive. It's alive!
 
-  let arr1Copy = arr1.slice();
-  arr1Copy.splice(n, 2, "Inject");
-  console.log(arr1Copy);
-  console.log(arr1);
+  // First I made copies of the input arrays
+  let arrCopy = arr1.slice();
+  let arr2Copy = arr2.slice();
 
   console.warn("For Loop");
-  for (let i = 0; i < arr1.length; i++){
-    //console.log(arr1[i]);
-    let arrCopy = arr1.slice();
-    //console.log(arrCopy);
-    for (let j = 0; j < arr2.length; j++){
-     console.log(arr2[j] + " -- " + [j] + " -- " + arrCopy[i]);
-    arr2 = arr2.splice(n, 0, arrCopy[i]);
-    }
+  // Then ran a for loop of the first array to be copied into the second
+  for (let i = 0; i < arrCopy.length; i++){
+    console.log(arrCopy[i]);
+    // I spliced array 1 into array 2
+    arr2Copy.splice(n, 0, arrCopy[i]);
+    // I realized the position (n) of the index also
+    // had to increment each look or else insert in reverse order
+    console.log("n: " + n);
+    n++
   }
   console.warn("Results");
-  return arr2;
+  // This problem took over an hour to solve.
+  return arr2Copy;
 }
 
 console.warn("Basic Algorithm Scripting: Slice and Splice")
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+//console.log(frankenSplice([1, 2, 3], [4, 5], 1));
+
+
+// Basic Algorithm Scripting: Falsy Bouncer
+//
+// Remove all falsy values from an array.
+//
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+//
+// Hint: Try converting each value to a Boolean.
+
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr;
+}
+
+console.error("Basic Algorithm Scripting: Falsy Bouncer")
+console.log(bouncer([7, "ate", "", false, 9]));
