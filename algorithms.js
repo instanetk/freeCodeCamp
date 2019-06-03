@@ -383,10 +383,61 @@ console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 //
 // Hint: Try converting each value to a Boolean.
 
-function bouncer(arr) {
-  // Don't show a false ID to this bouncer.
-  return arr;
+
+function bool(arg){
+  // TEST FUNCTION FOR FALSY VALUES
+  if (!arg){
+    return true;
+  } else {
+    return typeof(arg);
+  }
+
 }
 
+
+
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+
+  return arr.filter(Boolean);
+
+}
+
+
 console.error("Basic Algorithm Scripting: Falsy Bouncer")
+console.error("> Falsy Test: " + bool(""));
 console.log(bouncer([7, "ate", "", false, 9]));
+
+
+// Basic Algorithm Scripting: Where do I Belong
+//
+// Return the lowest index at which a value (second argument) should be
+// inserted into an array (first argument) once it has been sorted.
+// The returned value should be a number.
+//
+// For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because
+// it is greater than 1 (index 0), but less than 2 (index 1).
+//
+// Likewise, getIndexToIns([20,3,5], 19) should return 2 because
+// once the array has been sorted it will look like [3,5,20] and
+// 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+
+  arr.sort(function(a, b){
+    return a - b;
+  });
+
+  for (let a = 0; a < arr.length; a++){
+    if (arr[a] >= num){
+      return a;
+    }
+  }
+  // In case the array is empty or otherwise
+  return arr.length;
+}
+
+console.warn("Basic Algorithm Scripting: Where do I Belong")
+console.log(getIndexToIns([10, 20, 30, 40, 50], 30));
+//console.log(getIndexToIns([5, 3, 20, 3], 5));
