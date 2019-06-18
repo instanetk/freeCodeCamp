@@ -13,7 +13,7 @@
 // have already learned.
 
 function convertToF(celsius) {
-  let fahrenheit = celsius * 9/5 + 32;
+  let fahrenheit = celsius * 9 / 5 + 32;
   return fahrenheit;
 }
 
@@ -58,10 +58,10 @@ console.log(reverseString("dragon"));
 
 function factorialize(num) {
 
-  if (num === 0){
+  if (num === 0) {
     return 1;
   } else {
-    return num * factorialize(num-1);
+    return num * factorialize(num - 1);
   }
 
 }
@@ -82,10 +82,10 @@ console.log(factorialize(5));
 function findLongestWordLength(str) {
   let arr = str.split(" ");
   let longest = 0;
-  for (let i = 0; i < arr.length; i++){
-      if (arr[i].length > longest){
-        longest = arr[i].length;
-      }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest) {
+      longest = arr[i].length;
+    }
   }
   return longest;
 }
@@ -104,65 +104,70 @@ console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"
 // Output should be: largestNumber = [5, 26, 39, 1001];
 
 function largestOfFour(arr) {
-let largestNumber = [0,0,0,0];
+  let largestNumber = [0, 0, 0, 0];
 
-// The empty array has to be prepared with the predetermined amount of
-// spaces required for the output.
+  // The empty array has to be prepared with the predetermined amount of
+  // spaces required for the output.
 
-for (let i = 0; i < arr.length; i++){
-  console.log("OUT largestNumber is: " + largestNumber + " | i: " + i);
-  for (let j = 0; j < arr[i].length; j++){
-    console.log("IN largestNumber is: " + largestNumber + " | i: " + i + " (j: " + j +  ")");
-    if (arr[i][j] > largestNumber[i] || arr[i][j] < 0 ){ // note largestNumber[i]
-      largestNumber[i] = arr[i][j];
-      console.log(largestNumber);
+  for (let i = 0; i < arr.length; i++) {
+    console.log("OUT largestNumber is: " + largestNumber + " | i: " + i);
+    for (let j = 0; j < arr[i].length; j++) {
+      console.log("IN largestNumber is: " + largestNumber + " | i: " + i + " (j: " + j + ")");
+      if (arr[i][j] > largestNumber[i] || arr[i][j] < 0) { // note largestNumber[i]
+        largestNumber[i] = arr[i][j];
+        console.log(largestNumber);
 
-      /* FOR loop cycles
-                arrayIndex => i
-                subArrayIndex => j
+        /* FOR loop cycles
+                  arrayIndex => i
+                  subArrayIndex => j
 
-             Iteration in the first array
-                For each iteration: arr[i][j]           largestNumber[i]          if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
-                First iteration:    arr[0][0] => 4      largestNumber[0] => 0     4 > 0? => TRUE                       then largestNumber[0] = 4
-                Second iteration:   arr[0][1] => 5      largestNumber[0] => 4     5 > 4? => TRUE                       then largestNumber[0] = 5
-                Third iteration:    arr[0][2] => 1      largestNumber[0] => 5     1 > 5? => FALSE                      then largestNumber[0] = 5
-                Fourth iteration:   arr[0][3] => 3      largestNumber[0] => 5     3 > 5? => FALSE                      then largestNumber[0] = 5
-                Fifth iteration:    arr[0][4] => FALSE  largestNumber[0] => 5                                          largestNumber = [5,0,0,0]
-             Exit the first array and continue on the second one
-             Iteration in the second array
-                For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
-                First iteration:    arr[1][0] => 13      largestNumber[1] => 0      13 > 0? => TRUE                      then largestNumber[1] = 13
-                Second iteration:   arr[1][1] => 27      largestNumber[1] => 13     27 > 13? => TRUE                     then largestNumber[1] = 27
-                Third iteration:    arr[1][2] => 18      largestNumber[1] => 27     18 > 27? => FALSE                    then largestNumber[1] = 27
-                Fourth iteration:   arr[1][3] => 26      largestNumber[1] => 27     26 > 27? => FALSE                    then largestNumber[1] = 27
-                Fifth iteration:    arr[1][4] => FALSE   largestNumber[1] => 27                                          largestNumber = [5,27,0,0]
-             Exit the first array and continue on the third one
-             Iteration in the third array
-                For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
-                First iteration:    arr[2][0] => 32      largestNumber[2] => 0      32 > 0? => TRUE                      then largestNumber[2] = 32
-                Second iteration:   arr[2][1] => 35      largestNumber[2] => 32     35 > 32? => TRUE                     then largestNumber[2] = 35
-                Third iteration:    arr[2][2] => 37      largestNumber[2] => 35     37 > 35? => TRUE                     then largestNumber[2] = 37
-                Fourth iteration:   arr[2][3] => 39      largestNumber[2] => 37     39 > 37? => TRUE                     then largestNumber[2] = 39
-                Fifth iteration:    arr[2][4] => FALSE   largestNumber[2] => 39                                          largestNumber = [5,27,39,0]
-             Exit the first array and continue on the fourth one
-             Iteration in the fourth array
-                For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
-                First iteration:    arr[3][0] => 1000    largestNumber[3] => 0      1000 > 0? => TRUE                    then largestNumber[3] = 1000
-                Second iteration:   arr[3][1] => 1001    largestNumber[3] => 1000   1001 > 1000? => TRUE                 then largestNumber[3] = 1001
-                Third iteration:    arr[3][2] => 857     largestNumber[3] => 1001   857 > 1001? => FALSE                 then largestNumber[3] = 1001
-                Fourth iteration:   arr[3][3] => 1       largestNumber[3] => 1001   1 > 1001? => FALSE                   then largestNumber[3] = 1001
-                Fifth iteration:    arr[3][4] => FALSE   largestNumber[3] => 1001                                        largestNumber = [5,27,39,1001]
-             Exit the FOR loop */
+               Iteration in the first array
+                  For each iteration: arr[i][j]           largestNumber[i]          if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
+                  First iteration:    arr[0][0] => 4      largestNumber[0] => 0     4 > 0? => TRUE                       then largestNumber[0] = 4
+                  Second iteration:   arr[0][1] => 5      largestNumber[0] => 4     5 > 4? => TRUE                       then largestNumber[0] = 5
+                  Third iteration:    arr[0][2] => 1      largestNumber[0] => 5     1 > 5? => FALSE                      then largestNumber[0] = 5
+                  Fourth iteration:   arr[0][3] => 3      largestNumber[0] => 5     3 > 5? => FALSE                      then largestNumber[0] = 5
+                  Fifth iteration:    arr[0][4] => FALSE  largestNumber[0] => 5                                          largestNumber = [5,0,0,0]
+               Exit the first array and continue on the second one
+               Iteration in the second array
+                  For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
+                  First iteration:    arr[1][0] => 13      largestNumber[1] => 0      13 > 0? => TRUE                      then largestNumber[1] = 13
+                  Second iteration:   arr[1][1] => 27      largestNumber[1] => 13     27 > 13? => TRUE                     then largestNumber[1] = 27
+                  Third iteration:    arr[1][2] => 18      largestNumber[1] => 27     18 > 27? => FALSE                    then largestNumber[1] = 27
+                  Fourth iteration:   arr[1][3] => 26      largestNumber[1] => 27     26 > 27? => FALSE                    then largestNumber[1] = 27
+                  Fifth iteration:    arr[1][4] => FALSE   largestNumber[1] => 27                                          largestNumber = [5,27,0,0]
+               Exit the first array and continue on the third one
+               Iteration in the third array
+                  For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
+                  First iteration:    arr[2][0] => 32      largestNumber[2] => 0      32 > 0? => TRUE                      then largestNumber[2] = 32
+                  Second iteration:   arr[2][1] => 35      largestNumber[2] => 32     35 > 32? => TRUE                     then largestNumber[2] = 35
+                  Third iteration:    arr[2][2] => 37      largestNumber[2] => 35     37 > 35? => TRUE                     then largestNumber[2] = 37
+                  Fourth iteration:   arr[2][3] => 39      largestNumber[2] => 37     39 > 37? => TRUE                     then largestNumber[2] = 39
+                  Fifth iteration:    arr[2][4] => FALSE   largestNumber[2] => 39                                          largestNumber = [5,27,39,0]
+               Exit the first array and continue on the fourth one
+               Iteration in the fourth array
+                  For each iteration: arr[i][j]            largestNumber[i]           if arr[i][j] > largestNumber[i]?     then largestNumber[i] = arr[i][j]
+                  First iteration:    arr[3][0] => 1000    largestNumber[3] => 0      1000 > 0? => TRUE                    then largestNumber[3] = 1000
+                  Second iteration:   arr[3][1] => 1001    largestNumber[3] => 1000   1001 > 1000? => TRUE                 then largestNumber[3] = 1001
+                  Third iteration:    arr[3][2] => 857     largestNumber[3] => 1001   857 > 1001? => FALSE                 then largestNumber[3] = 1001
+                  Fourth iteration:   arr[3][3] => 1       largestNumber[3] => 1001   1 > 1001? => FALSE                   then largestNumber[3] = 1001
+                  Fifth iteration:    arr[3][4] => FALSE   largestNumber[3] => 1001                                        largestNumber = [5,27,39,1001]
+               Exit the FOR loop */
 
+      }
     }
   }
-}
   return largestNumber;
 }
 
 console.error("Line 97 // Basic Algorithm Scripting: Return Largest Numbers in Arrays")
 //largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
-largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]])
+largestOfFour([
+  [17, 23, 25, 12],
+  [25, 7, 34, 48],
+  [4, -10, 18, 21],
+  [-72, -3, -17, -10]
+])
 
 //
 // function largestOfFour(arr) {
@@ -183,13 +188,13 @@ largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -1
 
 // TESTING NEGATIVE VALUES IN FUNCTION
 
-function negative(num, neg){
+function negative(num, neg) {
 
-  if (num > neg ){
-  return true;
-} else {
-  return false;
-}
+  if (num > neg) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
 console.log(negative(-3, -17));
@@ -210,7 +215,7 @@ function confirmEnding(str, target) {
   let ending = target.length;
   let whole = str.length;
   let letters = str.slice(whole - ending);
-  if (letters === target){
+  if (letters === target) {
     return true;
   } else {
     return false;
@@ -228,10 +233,10 @@ console.log(confirmEnding("Bastian", "an"));
 function repeatStringNumTimes(str, num) {
   // repeat after me
   let repeat = str;
-  if (num > 0){
-  for (let i = 1; i < num; i++){
-    repeat += str;
-  }
+  if (num > 0) {
+    for (let i = 1; i < num; i++) {
+      repeat += str;
+    }
   } else {
     return "";
   }
@@ -252,7 +257,7 @@ function truncateString(str, num) {
   // Clear out that junk in your trunk
 
   let whole = str.length;
-  if (whole > num){
+  if (whole > num) {
     return str.slice(0, num) + "...";
   }
 
@@ -275,7 +280,7 @@ function findElement(arr, func) {
 
   for (let i = 0; i < arr.length; i++) {
     num = arr[i];
-    if (func(num)){
+    if (func(num)) {
       return num;
     }
   }
@@ -296,8 +301,8 @@ console.log(findElement([1, 3, 5, 8, 9, 11], num => num % 2 === 0));
 function booWho(bool) {
   // What is the new fad diet for ghost developers? The Boolean.
 
-  let test = typeof(bool);
-  if (test === "boolean"){
+  let test = typeof (bool);
+  if (test === "boolean") {
     return true;
   } else {
     return false;
@@ -320,13 +325,13 @@ console.log(booWho(false));
 function titleCase(str) {
 
   let words = str.toLowerCase().split(" ");
-  for (let i = 0; i < words.length; i++){
+  for (let i = 0; i < words.length; i++) {
 
     words[i] = words[i].charAt().toUpperCase() + words[i].slice(1);
 
   }
 
-    return words.join(" ");
+  return words.join(" ");
 
 }
 
@@ -356,7 +361,7 @@ function frankenSplice(arr1, arr2, n) {
 
   console.warn("For Loop");
   // Then ran a for loop of the first array to be copied into the second
-  for (let i = 0; i < arrCopy.length; i++){
+  for (let i = 0; i < arrCopy.length; i++) {
     console.log(arrCopy[i]);
     // I spliced array 1 into array 2
     arr2Copy.splice(n, 0, arrCopy[i]);
@@ -384,12 +389,12 @@ console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 // Hint: Try converting each value to a Boolean.
 
 
-function bool(arg){
+function bool(arg) {
   // TEST FUNCTION FOR FALSY VALUES
-  if (!arg){
+  if (!arg) {
     return true;
   } else {
-    return typeof(arg);
+    return typeof (arg);
   }
 
 }
@@ -425,12 +430,12 @@ console.log(bouncer([7, "ate", "", false, 9]));
 function getIndexToIns(arr, num) {
   // Find my place in this sorted array.
 
-  arr.sort(function(a, b){
+  arr.sort(function (a, b) {
     return a - b;
   });
 
-  for (let a = 0; a < arr.length; a++){
-    if (arr[a] >= num){
+  for (let a = 0; a < arr.length; a++) {
+    if (arr[a] >= num) {
       return a;
     }
   }
@@ -458,17 +463,82 @@ function mutation(arr) {
   let arrX = arr[0].toLowerCase().split("").sort();
   let arrX1 = arr[1].toLowerCase().split("").sort();
 
-  console.log(arrX +" | "+ arrX1);
-  
+  console.log(arrX + " | " + arrX1);
+
   // It was necessary to check the length of the second array against the first one using indexOf.
 
-  for (let i = 0; i < arrX1.length; i++){
-      if (arrX.indexOf(arrX1[i]) < 0){
-        return false;
-      }
-}
- return true;
+  for (let i = 0; i < arrX1.length; i++) {
+    if (arrX.indexOf(arrX1[i]) < 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 console.error("Basic Algorithm Scripting: Mutations")
 console.log(mutation(["hello", "hey"]));
+
+// Basic Algorithm Scripting: Chunky Monkey
+
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+  // Break it up.
+
+  // let l = arr.length; // array length
+  // let r = arr.length%size; // get remainder
+  // let n = Math.floor(l / size);
+
+  // console.log("Array length (l)", l);
+  // console.log("Remainder (r)",r); 
+  // console.log("Sets Of (n)",n);
+  // console.log("Size",size);
+
+  // console.warn("For Loop")
+
+function chunkArrayInGroups(arr, size) {
+
+  let chunk = [];
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i % size !== size - 1)
+      chunk.push(arr[i]);
+    else {
+      chunk.push(arr[i]);
+      //chunk = arr.slice(arr[i]);
+      newArr.push(chunk);
+      chunk = [];
+    } // end of if statement
+  } // end of outer loop
+
+  if (chunk.length !== 0)
+    newArr.push(chunk);
+  return newArr;
+}
+
+// function chunkArrayInGroups(arr, size) {
+
+//   var temp = [];
+//   var result = [];
+
+//   for (var a = 0; a < arr.length; a++) {
+//     if (a % size !== size - 1)
+//       temp.push(arr[a]);
+//     else {
+//       temp.push(arr[a]);
+//       result.push(temp);
+//       temp = [];
+//     }
+//   }
+
+//   if (temp.length !== 0)
+//     result.push(temp);
+//   return result;
+// }
+
+console.warn("Line 476 // Basic Algorithm Scripting: Chunky Monkey")
+console.table(chunkArrayInGroups(["a", "b", "c", "d", "e", "f"], 4));
+//console.warn("Expected Output","Array 6 / Size 4");
+// let tableArray = [["a","b","c","d"],["e","f"]];
+// console.table(tableArray);
+// console.log(tableArray);
