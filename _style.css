@@ -6,6 +6,6 @@ body {
   margin:0 auto;
   width:70%;
 }
-h1 {
-  font-family: HelveticaNeue-Light;
+h1, h2 {
+  font-family: Helvetica;
 }
