@@ -1,9 +1,7 @@
 // ES6: Write Higher Order Arrow Functions
 // It's time we see how powerful arrow functions are when processing data.
 //
-// Arrow functions work really well with higher order functions, such as map(),
-// filter(), and reduce(), that take other functions as arguments for processing
-// collections of data.
+// Arrow functions work really well with higher order functions, such as map(), filter(), and reduce(), that take other functions as arguments for processing collections of data.
 
 const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
 
