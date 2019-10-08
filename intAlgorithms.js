@@ -275,18 +275,58 @@ function uniteUnique(arr) {
   for (let i = 0; i < arguments.length; i++){
     array.push(arguments[i]);
   }
-
-  return array.map(x => {
-    //console.log(x);
- 
+  let output = [];
+   array.map(x => { 
     x.map(y => {
-      let united = [];
-      united.push(y);
-      return united;
+  if (output.indexOf(y) === -1){
+    output.push(y);
+  }
+    //now push into an array and filter the duplicates from the beginning
+    //you can nest map functions.
+    //x.map returns arrays
+    //y.map maps array values.
     })
   })
-
+return output;
 }
 
 console.error("Intermediate Algorithm Scripting: Sorted Union")
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); //should return [1, 3, 2, 5, 4].
+
+// Intermediate Algorithm Scripting: Convert HTML Entities
+
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+  // &colon;&rpar;
+  let HTMLentities = {
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    '\'':"&apos;"
+  }
+
+  return str.split("").map(char => HTMLentities[char] || char).join("");
+}
+
+console.warn("Intermediate Algorithm Scripting: Convert HTML Entities");
+console.log(convertHTML("Dolce & Gabbana"));
+
+// Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
+
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+// The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+
+// For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+
+function sumFibs(num) {
+
+
+
+  return num;
+}
+
+console.error("Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers");
+console.log(sumFibs(4)); //5
