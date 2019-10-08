@@ -323,10 +323,21 @@ console.log(convertHTML("Dolce & Gabbana"));
 
 function sumFibs(num) {
 
+  let prevNum = 0;
+  let currNum = 1;
+  let array = [];
 
+  //for (let i = 0; i < num; i++){
+    while (currNum <= num) {
+    currNum += prevNum;
+    prevNum = currNum - prevNum;
+    array.push(prevNum);
+  }
+console.log(array); // num is calculating fib to the Nth iterations where as the problem asks for the fib value.
 
-  return num;
+  return array
+    .reduce((acc, x) => acc + x * (x % 2));
 }
 
 console.error("Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers");
-console.log(sumFibs(4)); //5
+console.log(sumFibs(1000)); //5
