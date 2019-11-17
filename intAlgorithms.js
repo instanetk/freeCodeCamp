@@ -328,16 +328,154 @@ function sumFibs(num) {
   let array = [];
 
   //for (let i = 0; i < num; i++){
+    // a for loop would have generated a fibonacci sequence to the Nth number, where as a while loop generates a fibonacci sequence to the Nth value. 
     while (currNum <= num) {
     currNum += prevNum;
     prevNum = currNum - prevNum;
     array.push(prevNum);
   }
-console.log(array); // num is calculating fib to the Nth iterations where as the problem asks for the fib value.
 
   return array
     .reduce((acc, x) => acc + x * (x % 2));
 }
 
 console.error("Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers");
-console.log(sumFibs(1000)); //5
+console.log(sumFibs(1000)); 
+
+// Intermediate Algorithm Scripting: Sum All Primes
+
+// Sum all the prime numbers up to and including the provided number.
+
+// A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+
+// The provided number may not be a prime.
+
+function sumPrimes(num) {
+
+  var sieve = [], i, j, primes = [];
+  for (i = 2; i <= num; ++i) {
+      if (!sieve[i]) {
+          // i has not been marked -- it is prime
+          primes.push(i);
+          for (j = i << 1; j <= num; j += i) {
+              sieve[j] = true;
+          }
+      }
+  }
+  return primes.reduce((acc, curr) => acc + curr);
+}
+
+
+console.warn("Intermediate Algorithm Scripting: Sum All Primes");
+console.log(sumPrimes(10)); // sumPrimes(10) should return 17.
+console.log(sumPrimes(977)); // should return 73156.
+
+// Intermediate Algorithm Scripting: Smallest Common Multiple
+
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+// The range will be an array of two numbers that will not necessarily be in numerical order.
+
+// For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+function smallestCommons(arr) {
+
+let sorted = arr.sort(function(a, b) {
+  return b - a;
+});
+
+let array = [];
+
+for (let i = sorted[0]; i >= sorted[1]; i--){
+  array.push(i);
+}
+
+let quot = 0;
+let loop = 1;
+let n;
+
+// run code while n is not the same length as the array 
+console.log(array);
+do {
+  quot = array[0] * loop * array[1];
+ 
+    for (n = 2; n < array.length; n++){
+      console.warn("loop " + loop, quot, "% " + array[n] + " = " + quot / array[n]);
+      if (quot % array[n] !== 0){
+        break;
+      }
+    }
+    loop++
+} while (n !== array.length);
+
+  return quot;
+
+}
+
+
+console.error("Intermediate Algorithm Scripting: Smallest Common Multiple");
+console.log(smallestCommons([1,5])); //should return 60.
+//console.log(smallestCommons([2, 10])); // should return 2520
+
+// Intermediate Algorithm Scripting: Drop it
+
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+
+// Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+function dropElements(arr, func) {
+
+
+  // drop them elements.
+  var times = arr.length;
+  for (var i = 0; i < times; i++) {
+    if (func(arr[0])) { // if returns true
+      break;
+    } else { //if false
+      arr.shift(); //remove first element (index: 0)
+    }
+  }
+  return arr;
+}
+
+
+
+
+console.error("Intermediate Algorithm Scripting: Drop it");
+console.log(dropElements([1, 2, 3], function(n) {return n < 3; })); // 1, 2
+console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;})); // 1, 0, 1
+console.log(dropElements([0, 1, 2, 3, 9, 2], function(n) {return n > 2;})); // 3, 9, 2
+
+// Intermediate Algorithm Scripting: Steamroller
+
+// Flatten a nested array. You must account for varying levels of nesting.
+
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+
+  // Declare a placeholder array
+  let newArr = arr.flat(Infinity);
+
+  return newArr;
+} // end steamrollArray function
+
+console.warn("Intermediate Algorithm Scripting: Steamroller");
+console.warn(steamrollArray([[["a"]], [["b"]]])); //should return ["a", "b"].
+console.warn(steamrollArray([1, [2], [3, [[4]]]])); //should return [1, 2, 3, 4].
+console.log(steamrollArray([1, [], [3, [[4]]]])); //should return [1, 3, 4].
+console.log(steamrollArray([1, {}, [3, [[4]]]])); //should return [1, {}, 3, 4].
+
+// Intermediate Algorithm Scripting: Binary Agents
+// Return an English translated sentence of the passed binary string.
+
+// The binary string will be space separated.
+
+function binaryAgent(str) {
+
+  let arr = str.split(' ').map(x => String.fromCharCode(parseInt(x, 2))).join('');
+ 
+  return arr;
+}
+
+console.error("Intermediate Algorithm Scripting: Binary Agents");
+console.log(binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
