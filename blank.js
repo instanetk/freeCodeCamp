@@ -1,20 +1,8 @@
-// Intermediate Algorithm Scripting: Steamroller
+function binaryAgent(str) {
 
-// Flatten a nested array. You must account for varying levels of nesting.
+  let arr = str.split(' ').map(x => String.fromCharCode(parseInt(x, 2))).join('');
+ 
+  return arr;
+}
 
-function steamrollArray(arr) {
-  // I'm a steamroller, baby
-
-  // Declare a placeholder array
-  let newArr = arr.flat(Infinity);
-
-
-
-  return newArr;
-} // end steamrollArray function
-
-console.warn("Intermediate Algorithm Scripting: Steamroller");
-console.warn("RESULT ", steamrollArray([[["a"]], [["b"]]])); //should return ["a", "b"].
-console.warn("RESULT", steamrollArray([1, [2], [3, [[4]]]])); //should return [1, 2, 3, 4].
-console.log(steamrollArray([1, [], [3, [[4]]]])); //should return [1, 3, 4].
-console.log(steamrollArray([1, {}, [3, [[4]]]])); //should return [1, {}, 3, 4].
+document.writeln('<h1>Hello, world!</h1>', binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
