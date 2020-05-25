@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+    <nav id="navbar">
+        <header>JS Documentation</header>
+        <a href="#Introduction" class="nav-link">Introduction</a>
+        <a href="#Values_Types_and_Operators" class="nav-link">Values Types and Operators</a>
+        <a href="#Program_Structure" class="nav-link">Program Structure</a>
+        <a href="#Functions" class="nav-link">Functions</a>
+        <a href="#Data_Structures" class="nav-link">Data Structures</a>
+    </nav>
+    <main id="main-doc">
+        <!--
+             User Story #5: The .main-section elements should contain at least 10 p elements total (not each).
+
+            User Story #6: The .main-section elements should contain at least 5 code elements total (not each).
+
+            User Story #7: The .main-section elements should contain at least 5 li items total (not each).
+        -->
+        <section id="Introduction" class="main-section">
+            <header>Introduction</header>
+            <p>"We think we are creating the system for our own purposes. We believe we are making it in our own
+                image... But the computer is not really like us. It is a projection of a very slim part of ourselves:
+                that portion devoted to logic, order, rule, and clarity." <br /> ––Ellen Ullman, Close to the Machine:
+                Technophilia and its Discontents</p>
+            <h3>What is ECMAScript?</h3>
+            <p>ECMAScript is an object-oriented programming language for performing computations and manipulating
+                computational objects within a host environment. ECMAScript as defined here is not intended to be
+                computationally self-sufficient; indeed, there are no provisions in this specification for input of
+                external data or output of computed results. Instead, it is expected that the computational environment
+                of an ECMAScript program will provide not only the objects and other facilities described in this
+                specification but also certain environment-specific objects, whose description and behaviour are beyond
+                the scope of this specification except to indicate that they may provide certain properties that can be
+                accessed and certain functions that can be called from an ECMAScript program.</p>
+
+            <p>ECMAScript was originally designed to be used as a scripting language, but has become widely used as a
+                general-purpose programming language. A scripting language is a programming language that is used to
+                manipulate, customize, and automate the facilities of an existing system. In such systems, useful
+                functionality is already available through a user interface, and the scripting language is a mechanism
+                for exposing that functionality to program control. In this way, the existing system is said to provide
+                a host environment of objects and facilities, which completes the capabilities of the scripting
+                language. A scripting language is intended for use by both professional and non-professional
+                programmers.</p>
+
+            <p>ECMAScript was originally designed to be a Web scripting language, providing a mechanism to enliven Web
+                pages in browsers and to perform server computation as part of a Web-based client-server architecture.
+                ECMAScript is now used to provide core scripting capabilities for a variety of host environments.
+                Therefore the core language is specified in this document apart from any particular host environment.
+            </p>
+        </section>
+        <section id="Values_Types_and_Operators" class="main-section">
+            <header>Values Types and Operators</header>
+            <p>An ECMAScript language type corresponds to values that are directly manipulated by an ECMAScript
+                programmer using the ECMAScript language. The ECMAScript language types are <i>Undefined, Null, Boolean,
+                    String, Symbol, Number, and Object</i>. An ECMAScript language value is a value that is
+                characterized by an ECMAScript language type. </p>
+            <ul>
+                <li>The <b>Undefined</b> Type: The Undefined type has exactly one value, called undefined. Any variable
+                    that has not been assigned a value has the value undefined.
+                </li>
+                <li>The <b>Null</b> Type: The Null type has exactly one value, called null.
+                </li>
+                <li>The <b>Boolean</b> Type: The Boolean type represents a logical entity having two values, called
+                    <b>true</b> and <b>false</b>.
+                </li>
+                <li>The <b>String</b> Type: The String type is the set of all ordered sequences of zero or more 16-bit
+                    unsigned integer values (“elements”) up to a maximum length of 2<sup>53</sup> - 1 elements. The
+                    String type is generally used to represent textual data in a running ECMAScript program, in which
+                    case each element in the String is treated as a UTF-16 code unit value. Each element is regarded as
+                    occupying a position within the sequence. These positions are indexed with nonnegative integers. The
+                    first element (if any) is at index 0, the next element (if any) at index 1, and so on. The length of
+                    a String is the number of elements (i.e., 16-bit values) within it. The empty String has length zero
+                    and therefore contains no elements.</li>
+                <li>The <b>Symbol</b> Type: The Symbol type is the set of all non-String values that may be used as the
+                    key of an Object property.</li>
+                <li>The <b>Number</b> Type: The Number type has exactly 18437736874454810627 (that is, 2<sup>64</sup> -
+                    2<sup>53</sup> + 3) values, representing the double-precision 64-bit format IEEE 754-2008 values as
+                    specified in the IEEE Standard for Binary Floating-Point Arithmetic, except that the
+                    9007199254740990 (that is, 2<sup>53</sup> - 2) distinct “Not-a-Number” values of the IEEE Standard
+                    are represented in ECMAScript as a single special NaN value. (Note that the NaN value is produced by
+                    the program expression NaN.) In some implementations, external code might be able to detect a
+                    difference between various Not-a-Number values, but such behaviour is implementation-dependent; to
+                    ECMAScript code, all NaN values are indistinguishable from each other.
+
+                </li>
+                <li>The <b>Object</b> Type: All objects are logically collections of properties, but there are multiple
+                    forms of objects that differ in their semantics for accessing and manipulating their properties.
+                    Ordinary objects are the most common form of objects and have the default object semantics. An
+                    exotic object is any form of object whose property semantics differ in any way from the default
+                    semantics.
+
+                </li>
+            </ul>
+        </section>
+        <section id="Program_Structure" class="main-section">
+            <header>Program Structure</header>
+            <p>You now know that a program is built out of statements, which themselves sometimes contain more
+                statements. Statements tend to contain expressions, which themselves can be built out of smaller
+                expressions.</p>
+            <code>let theNumber = Number(prompt("Pick a number"));<br/>
+                    if (!Number.isNaN(theNumber)) {<br/>
+                      console.log("Your number is the square root of " +<br/>
+                                  theNumber * theNumber);<br/>
+                    }</code>
+            <p>Putting statements after one another gives you a program that is executed from top to bottom. You can
+                introduce disturbances in the flow of control by using conditional (if, else, and switch) and looping
+                (while, do, and for) statements.</p>
+            <code>
+                    let num = Number(prompt("Pick a number"));<br/>
+                    if (num < 10) {<br/>
+                    console.log("Small");<br/>
+                    } else if (num < 100) {<br/>
+                    console.log("Medium");<br/>
+                    } else {<br/>
+                    console.log("Large");<br/>
+}
+                </code>
+            <p>Bindings can be used to file pieces of data under a name, and they are useful for tracking state in your
+                program. The environment is the set of bindings that are defined. JavaScript systems always put a number
+                of useful standard bindings into your environment.</p>
+            <code>let caught = 5 * 5; //To catch and hold values, JavaScript provides a thing called a binding, or variable:</code>
+            <p>Functions are special values that encapsulate a piece of program. You can invoke them by writing
+                functionName(argument1, argument2). Such a function call is an expression and may produce a value.</p>
+        </section>
+        <section id="Functions" class="main-section">
+            <header>Functions</header>
+            <p>Functions are the bread and butter of JavaScript programming. The concept of wrapping a piece of program
+                in a value has many uses. It gives us a way to structure larger programs, to reduce repetition, to
+                associate names with subprograms, and to isolate these subprograms from each other.</p>
+
+            <p>The most obvious application of functions is defining new vocabulary. Creating new words in prose is
+                usually bad style. But in programming, it is indispensable.</p>
+
+            <p>ypical adult English speakers have some 20,000 words in their vocabulary. Few programming languages come
+                with 20,000 commands built in. And the vocabulary that is available tends to be more precisely defined,
+                and thus less flexible, than in human language. Therefore, we usually have to introduce new concepts to
+                avoid repeating ourselves too much.
+
+            </p>
+            <h3>Defining a Function</h3>
+            <p>A function definition is a regular binding where the value of the binding is a function. For example,
+                this code defines square to refer to a function that produces the square of a given number:
+
+            </p>
+            <code>
+                    const square = function(x) {<br/>
+                        return x * x;<br/>
+                      };<br/>
+                      <br/>
+                      console.log(square(12));<br/>
+                      // → 144
+                </code>
+            <p>A function is created with an expression that starts with the keyword function. Functions have a set of
+                parameters (in this case, only x) and a body, which contains the statements that are to be executed when
+                the function is called. The function body of a function created this way must always be wrapped in
+                braces, even when it consists of only a single statement.
+
+            </p>
+            <p>A function can have multiple parameters or no parameters at all. In the following example, makeNoise does
+                not list any parameter names, whereas power lists two:
+
+            </p>
+            <code>
+                    const makeNoise = function() {<br/>
+                        console.log("Pling!");<br/>
+                      };<br/>
+                      <br/>
+                      makeNoise();<br/>
+                      // → Pling!<br/>
+                      <br/>
+                      const power = function(base, exponent) {<br/>
+                        let result = 1;<br/>
+                        for (let count = 0; count < exponent; count++) {<br/>
+                          result *= base;<br/>
+                        }<br/>
+                        return result;<br/>
+                      };<br/>
+                      <br/>
+                      console.log(power(2, 10));<br/>
+                      // → 1024<br/>
+                </code>
+        </section>
+        <section id="Data_Structures" class="main-section">
+            <header>Data Structures</header>
+            <p>Numbers, Booleans, and strings are the atoms that data structures are built from. Many types of
+                information require more than one atom, though. Objects allow us to group values—including other
+                objects—to build more complex structures.
+
+            </p>
+            <p>The programs we have built so far have been limited by the fact that they were operating only on simple
+                data types. This chapter will introduce basic data structures. By the end of it, you’ll know enough to
+                start writing useful programs.
+
+            </p>
+            <p>
+                The chapter will work through a more or less realistic programming example, introducing concepts as they
+                apply to the problem at hand. The example code will often build on functions and bindings that were
+                introduced earlier in the text.
+
+
+            </p>
+        </section>
+    </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+
+
+body {
+    margin: 0;
+    background-color: #000;
+    background-image: linear-gradient(-90deg, hsl(350, 100%, 20%), hsl(300, 100%, 20%));
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+#container {
+    display: flex;
+    flex-direction: column; 
+    /* border: 10px solid black; */
+}
+
+#header {
+    width: 100%;
+    background-color: #FF0071;
+    opacity: 90%;
+    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-self: flex-start;
+    flex-direction: row;
+}
+
+#logo {
+    display: flex;
+    justify-content: start;
+    width: 30%;
+}
+
+#logo > img {
+    min-width: 150px;
+    width: 55%;
+    height: auto;
+    padding: 10px;
+}
+
+#nav-bar {
+    align-self: center;
+}
+
+#nav-bar .nav-link {
+    color: #fff;
+    font-size: 20px;
+    padding: 0 20px 0 0;
+    text-align: right;
+    text-decoration: none;
+
+}
+#main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 80px auto 15px auto; 
+    background-color: white;
+    border-radius: 15px;
+    padding:30px;
+    /* border:10px solid yellow; */
+
+
+}
+#video-container {
+    display: flex;
+    justify-content: center;
+    height:auto;
+    padding:30px;
+    /* border:10px solid fuchsia; */
+
+}
+#plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* border: 10px solid #FF0071; */
+}
+#plans div{
+    width: 300px;
+    padding: 20px;
+    border:2px solid #e1e1e1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#plans h2, p {
+    text-align: center;    
+}
+#plans button {
+    background-color: #FF0071;
+    font-size: 24px;
+    color: white;
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto 0 auto;
+}
+#upload, #browse, #request {
+    display: flex;
+    flex-direction: row;
+
+}
+
+/* FORM CSS BEGINS */
+#form-div {
+    display: flex;
+    justify-content: center;
+    padding:40px; 
+    border:10px solid chartreuse;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    margin-bottom:20px;
+    
+}
+
+#name,
+#email,
+#number,
+#dropdown,
+#radio,
+#checkbox,
+#comments,
+#quantum,
+#state,
+#name-label,
+#email-label,
+#number-label {
+    display: inline-flex;
+    flex-flow: column;
+    width:100%;
+    height: 45px;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+
+#comments {
+    height: 150px;
+    top:15px;
+}
+
+#submit {
+    font-size: 18px;
+    background-color: hsl(90, 60%, 50%);
+    color: #fff;
+    padding: 10px;
+    width: 101%;
+}
+
+/* FORM CSS ENDS */
+
+@media (max-width: 600px) {
+    #form-div {
+        display: none;
+    }
+}

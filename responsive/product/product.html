@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    <title>StickerXchange</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo"><img src="logo.png" alt="StickerXchange logo" id="header-img"></div>
+        <nav id="nav-bar">
+            <a href="#upload" class="nav-link">Upload</a>
+            <a href="#browse" class="nav-link">Browse</a>
+            <a href="#request" class="nav-link">Request</a>
+        </nav>
+    </div>
+    <div id="container">
+
+    <div id="main">
+        <div id="video-container">
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/j-5F17xOcF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="plans">
+            <div class="mule"><h2>Mule</h2><p>This plan will sort through 15 amount of stickers form our user base donations.</p><button>Buy Now</button></div>
+            <div class="mule"><h2>Horse</h2><p>This plan will sort through 30 amount of stickers form our user base donations.</p><button>Buy Now</button></div>
+            <div class="mule"><h2>Unicorn</h2><p>This plan will sort through 45 amount of stickers form our user base donations.</p><button>Buy Now</button></div>
+        </div>
+        <div id="upload">
+            <h2>Upload</h2>
+            <p><span>⬆️</span>Upload pictures of your current sticker collection that you would like to circulate.</p>
+        </div>
+        <div id="browse">
+            <h2>Browse</h2>
+            <p><span>🌠</span>Browse through the currect stock of stickers at our art center and finally...</p>
+        </div>
+        <div id="request">
+            <h2>Request</h2>
+            <p><span>💖</span>Now the magic happens, as we receive your sticker donation, we ship your exchange for a low operational $3 fee.</p>
+        </div>
+        <div id="form-div">
+        <form id="form" action="https://www.freecodecamp.com/email-submit" method="POST">
+            <label id="name-label">Name:<br /><input type="text" id="name" placeholder="Name" required></label>
+            <br />
+            <label id="email-label">E-mail:<br /><input type="email" id="email" placeholder="you@somewhere.io"
+                    required></label>
+            <br />
+            <label id="number-label">Age:<br /><input type="number" id="number" min="18" max="118"
+                    placeholder="18"></label>
+            <br />
+            <label id="dropdown" for="quantum">The Universe is:
+                <select id="quantum">
+                    <option value="deterministic">Deterministic</option>
+                    <option value="non-deterministic">Non-Deterministic</option>
+                    <option value="quantum-fluctuations">Field of Quantum Fluctuations</option>
+                </select>
+            </label>
+            <br /><br />
+            <label id="radio" for="state"> Select a quantum state:
+                <input type="radio" name="state" value="entangled" checked>Entangled</input>
+                <input type="radio" name="state" value="unentangled">Unentangled</input>
+            </label>
+            <br /><br />
+            <label id="checkbox" for="phenomena">Select all that apply. You are:<br /><br />
+                <input type="checkbox" value="conscious">Conscious</input>
+                <input type="checkbox" value="unconscious">Unconscious</input>
+                <input type="checkbox" value="physical">Physical Entity</input>
+                <input type="checkbox" value="spiritual">Spiritual Entity</input>
+            </label>
+            <br />
+            <label id="comments" for="comments">Penny for your thoughts:<br />
+                <textarea id="comments"
+                    onclick="if(this.value==='Tell us what you think' || 'Say again?'){this.value=''};"
+                    onblur="if(this.value===''){this.value='Say again?'};">Tell us what you think</textarea>
+            </label>
+            <br />
+            <input type="submit" id="submit">
+        </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

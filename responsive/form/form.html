@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devs Survey Form</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <style type="text/css">
+    body {
+        margin: 0;
+        background-color: #000;
+        background-image: linear-gradient(45deg, hsl(280, 100%, 20%), hsl(260, 100%, 20%));
+    }
+    #main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #main p {
+        text-align: center;
+        color:#fff;
+        font-family: sans-serif;
+        grid-column: 1/4;
+    }
+    #main h1 {
+        text-align: center;
+        color: #fff;
+        font-family: monospace;
+        grid-column: 1/4;
+    }
+    #container {
+        grid-column: 1/4;
+        background-color: #fff;
+        width: 50%;
+        margin: 10px auto 50px auto;
+        border-radius: 15px;
+        padding: 50px;
+        opacity: 90%;
+    }
+    input {
+        margin-bottom:20px;
+    }
+    #name, #email, #number, #dropdown, #radio, #checkbox, #comments, #quantum, #state, #name-label, #email-label, #number-label {
+        width: 100%;
+        height: 35px;
+        font-size: 16px;
+        font-family: monospace;
+        top:30px;
+    }
+    #comments {
+        height: 150px;
+    }
+    #submit {
+        font-size: 18px;
+        background-color: hsl(90, 60%, 50%);
+        color:#fff;
+        width:101%;
+        padding:10px;
+    }
+    .test {
+        background-color: cyan;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 id="title">Fullstack Devs Survey</h1>
+        <p id="description">It is a deterministic universe, but we still want to know your thoughts...</p>
+    <div id="container">
+        <form id="survey-form">
+            <label id="name-label">Name:<br/><input type="text" id="name" placeholder="Name" required></label>
+            <br/>
+            <label id="email-label">E-mail:<br/><input type="email" id="email" placeholder="you@somewhere.io" required></label>
+            <br/>
+            <label id="number-label">Age:<br/><input type="number" id="number" min="18" max="118" placeholder="18"></label>
+            <br/>
+            <label id="dropdown" for="quantum">The Universe is:
+                <select id="quantum">
+                    <option value="deterministic">Deterministic</option>
+                    <option value="non-deterministic">Non-Deterministic</option>
+                    <option value="quantum-fluctuations">Field of Quantum Fluctuations</option>
+                </select>
+            </label>
+            <br/><br/>
+            <label id="radio" for="state"> Select a quantum state:
+                    <input type="radio" name="state" value="entangled" checked>Entangled</input>
+                    <input type="radio" name="state" value="unentangled">Unentangled</input>
+            </label>
+            <br/><br/>
+            <label id="checkbox" for="phenomena">Select all that apply. You are:<br/><br/>
+                <input type="checkbox" value="conscious">Conscious</input>
+                <input type="checkbox" value="unconscious">Unconscious</input>
+                <input type="checkbox" value="physical">Physical Entity</input>
+                <input type="checkbox" value="spiritual">Spiritual Entity</input>
+            </label>
+            <br/>
+            <label id="comments" for="comments">Penny for your thoughts:<br/>
+            <textarea id="comments" onclick="if(this.value==='Tell us what you think' || 'Say again?'){this.value=''};" onblur="if(this.value===''){this.value='Say again?'};">Tell us what you think</textarea>
+            </label>
+            <br/>
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
