@@ -1,0 +1,34 @@
+#quote-box {
+    width: 50vw;
+  }
+
+#quote-box {
+}
+.quote {
+    font-size: 18px;
+    text-align: justify;
+    animation: 5s fade-in;
+}
+
+.author {
+    text-align: right;
+}
+
+.newQuote {
+    font-size: 24px;
+}
+
+.number{
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
