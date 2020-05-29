@@ -7,7 +7,7 @@
 .quote {
     font-size: 18px;
     text-align: justify;
-    animation: 5s fade-in;
+    animation: 2s fade-in;
 }
 
 .author {
@@ -16,6 +16,16 @@
 
 .newQuote {
     font-size: 24px;
+}
+
+#tweet-quote {
+    background-color: rgb(0, 225, 255);
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 3px 8px 3px 8px;
+    margin:10px;
+    text-decoration: none;
 }
 
 .number{

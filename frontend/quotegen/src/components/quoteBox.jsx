@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import '../quoteBox.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import '../quoteBox.css'
 
 let quotes = [
     {quote: 'Inch by inch the dream is actually gaining ground. There will be a second hearing. There will be an appeal from the absolute judgment of 20 years ago. Well then, in that case, it evolves upon all of us to embody this thing. And not to cut corners and to just ––you know–– try just a little bit harder, just a little bit more.',
@@ -56,6 +59,7 @@ let random = (max) => {
 }
 let index = () =>  (random(quotes.length));
 
+library.add(fab); //Font Awesome Brands
 class QuoteBox extends Component {
     state = { 
         index: index(),
@@ -65,16 +69,23 @@ class QuoteBox extends Component {
     newQuote = () => {
      this.setState({index: index()})
     };
- 
 
+componentDidUpdate(){
+    console.log("Component Updated");
+    // $("#text").fadeIn(1000);
+}
+ 
     render() {
-        let entry = quotes[this.state.index];
+        let i  = this.state.index;
+        let entry = quotes[i];
+        const tweet = <FontAwesomeIcon icon={['fab', 'twitter']} />;
         return ( 
             <div id="quote-box">
             <p className="quote" id="text">{entry.quote}</p>
             <p className="author" id="author">{entry.author}</p>
             <button id="new-quote" onClick={this.newQuote} className="newQuote">New Quote</button>
-            <span className="number">Quote {this.state.index + 1} of {quotes.length}</span>
+            <a href={`https://twitter.com/intent/tweet?text='${entry.quote}'%0A%0A${entry.author}`} target="_blank" id="tweet-quote">{tweet}</a>
+            <span className="number">Quote {i + 1} of {quotes.length}</span>
             </div>
          );
     }
